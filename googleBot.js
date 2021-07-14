@@ -17,7 +17,7 @@ if(button != undefined){ // Проверяем, что мы на главной 
     setTimeout(function(){
         button.click();// Клик по кнопке поиска
     }, 2000);
-}else if(location.hostname === "https://yandex.ru/"){ // Если страница с поисковой выдачей
+}else if(location.hostname === "yandex.ru"){ // Если страница с поисковой выдачей
     let links = document.links; // Собираем коллекцию ссылок
     let goNext = true;
     for(let i=0; i<links.length; i++){ // Перебираем ссылки
