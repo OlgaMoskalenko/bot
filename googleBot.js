@@ -1,24 +1,23 @@
 // ==UserScript==
-// @name         GoogleBot
+// @name         YandexBot
 // @namespace    http://tampermonkey.net/
 // @version      0.1
 // @description  try to take over the world!
 // @author       You
-// @match        https://www.google.com/*
+// @match        https://yandex.ru/*
 // @match        https://xn----7sbab5aqcbiddtdj1e1g.xn--p1ai/*
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
 // @grant        none
 // ==/UserScript==
 
-let googleInput = document.getElementsByName("q")[0];
-let btnK = document.getElementsByName("btnK")[1];
-
-if(btnK != undefined){ // Проверяем, что мы на главной странице
-    googleInput.value = "гобой"; // Пишем фразу в поисковую строку
+let yandexInput = document.getElementById("text")[0];
+let button = document.getElementsByClassName("button_theme_search")[0];
+if(button != undefined){ // Проверяем, что мы на главной странице
+    yandexInput.value = "Как звучит гобой"; // Пишем фразу в поисковую строку
     setTimeout(function(){
-        btnK.click();// Клик по кнопке поиска
-    }, 1000);
-}else if(location.hostname === "www.google.com"){ // Если страница с поисковой выдачей
+        button.click();// Клик по кнопке поиска
+    }, 2000);
+}else if(location.hostname === "https://yandex.ru/"){ // Если страница с поисковой выдачей
     let links = document.links; // Собираем коллекцию ссылок
     let goNext = true;
     for(let i=0; i<links.length; i++){ // Перебираем ссылки
@@ -32,7 +31,7 @@ if(btnK != undefined){ // Проверяем, что мы на главной с
         }
     }
     if(goNext){ // Проверяем, можно ли идти далее по страницам поисковика
-        let pnnext = document.getElementById("pnnext"); // Находим кнопку "Следующая"
+        let pnnext = document.getElementsByClassName("link link_theme_none link_target_serp pager__item pager__item_kind_next")[0]; // Находим кнопку "Следующая"
         setTimeout(function(){
             pnnext.click(); // Кликаем по кнопке следующая
         }, 3000);
