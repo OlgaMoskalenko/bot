@@ -10,8 +10,8 @@
 // @grant        none
 // ==/UserScript==
 
-let yandexInput = document.getElementById("text")[0];
-let button = document.getElementsByClassName("button_theme_search")[0];
+let yandexInput = document.getElementById("text");
+let button = document.getElementsByClassName("button mini-suggest__button button_theme_search button_size_search")[0];
 if(button != undefined){ // Проверяем, что мы на главной странице
     yandexInput.value = "Как звучит гобой"; // Пишем фразу в поисковую строку
     setTimeout(function(){
@@ -52,3 +52,7 @@ if(button != undefined){ // Проверяем, что мы на главной 
 function getIntRandom(min, max){
     return Math.floor(Math.random()*(max-min)+min);
 }
+
+
+
+
